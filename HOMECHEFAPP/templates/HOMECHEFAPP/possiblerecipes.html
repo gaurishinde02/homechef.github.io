@@ -1,0 +1,17 @@
+{% extends "HOMECHEFAPP/base.html" %}
+{% block content %}
+<div class="well well-sm text-center">
+    <h3>Possible recipes that you could make</h3>
+    <font color="white">
+        <table class="table table-dark">
+            {% for item in recipes %}
+            <tr>
+                <td>
+                    <label>{{ item }}</label>
+                </td>
+            </tr>
+            {% endfor %}
+        </table>
+    </font>
+</div>
+{% endblock content %}

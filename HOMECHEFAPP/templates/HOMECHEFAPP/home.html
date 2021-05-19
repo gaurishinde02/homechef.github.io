@@ -1,0 +1,26 @@
+{% extends "HOMECHEFAPP/base.html" %}
+{% block content %}
+<div class="well well-sm text-center">
+    <h3>Select your ingredients</h3>
+    <form action="/possiblerecipes/" method="POST">
+        {% csrf_token %}
+        <font color="white">
+            <table class="table table-dark">
+                <tr>
+                {% for ingredient in ingredients %}
+                    <td>
+                        <input type="checkbox" name="{{ ingredient.ingredientname }}" id="{{ ingredient.ingredientname }}" value="Yes"/>
+                        <label>{{ ingredient.ingredientname }}</label>
+                    </td>
+                    {% if forloop.counter|divisibleby:2  %}
+                        </tr><tr>
+                    {% endif %}
+                {% endfor %}
+                </tr>
+            </table>
+        </font>
+        <input class="btn btn-success btn-lg" type="submit" value="Find Recipe">
+    </form>
+</div>
+{% endblock content %}
+
